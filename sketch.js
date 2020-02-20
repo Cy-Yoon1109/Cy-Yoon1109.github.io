@@ -396,19 +396,19 @@ function mouseWheel(event){
 // }
 
 
-// function mousePressed() {
-//   if (dist(mouseX, mouseY, width/2, height/2) > 25) {
-//     r1 +=r1*0.9;
-//     r2 +=r2*0.9;
-//     r3 +=r3*0.9;
-//     r4 +=r4*0.9;
-//     r5 +=r5*0.9;
-//     r6 +=r6*0.9;
-//     r7 +=r7*0.9;
-//     r8 +=r8*0.9;
-//     r9 +=r9*0.9;
-//   }
-// }
+function mousePressed() {
+  if (dist(mouseX, mouseY, width/2, height/2) > 25) {
+    r1 +=50;
+    r2 +=50;
+    r3 +=50;
+    r4 +=50;
+    r5 +=50;
+    r6 +=50;
+    r7 +=50;
+    r8 +=50;
+    r9 +=50;
+  }
+}
 
 function mouseMoved() {
   value = value + 4;
