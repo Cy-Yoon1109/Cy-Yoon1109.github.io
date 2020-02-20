@@ -1,4 +1,5 @@
-
+// let = img;
+let value = 0;
 // line length
 let r1 = 50;
 let r2 = 100;
@@ -12,6 +13,7 @@ let r9 = 790;
 
 
 //diameter
+let m0 = 1;
 let m1 = 10;
 let m2 = 10;
 let m3 = 10;
@@ -23,6 +25,7 @@ let a2 = 3.14159265358979323846/4;
 let a3 = 3.14159265358979323846/3.5;
 let a4 = 3.14159265358979323846/2;
 let a5 = 3.14159265358979323846/5;
+let a6 = 3.14159265358979323846/9.9;
 
 
 // velocity of rotation
@@ -34,15 +37,29 @@ let g = 1;
 
 // let px2 = 0;
 // let py1 = 0;
+// let img;
+// // let c;
+
+// function preload(){
+//   img = loadImage('IMG/pink.png');
+// }
 
 function setup() {
   // put setup code here
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(windowWidth, windowHeight);
+  // image(img, 0, 0, 100, 100);
 }
 
 function draw() {
+  push();
+  fill(100)
+  rect(0,0,100,100);
+  pop();
+  // image(img,0,0);
   // RightUpper(width,0);
   // put drawing code here
+  // stroke(100)
+  ellipse(mouseX,mouseY,10,10);
   let num1 = -g * (2 * m1 + m2) * sin(a1);
   let num2 = -m2 * g * sin(a1-2*a2);
   let num3 = -2*sin(a1-a2)*m2;
@@ -119,9 +136,10 @@ function draw() {
   var x5 = x4 + r5 * cos(a4);
   var y5 = y4 + r5 * tan(a2);
 
+
 //Center
   stroke('#32a852');
-  strokeWeight(1);
+  strokeWeight(m0);
   fill(random(0,255),random(0,255),random(0,255))
   ellipse(0,0,m5,m5);
 // 1st ellipse
@@ -236,8 +254,28 @@ function draw() {
   fill(0);
   ellipse(x1_6,y1_6,m1,m1);
 
-  var x3 = x2+r3 * sin(a5);
+  var x3 = x2+r3 * sin(a1);
   var y3 = y2+r3 * cos(a5);
+
+  var x3_1 = x3+r2 * -sin(a1);
+  var y3_1 = y3+r2 * -cos(a3*2);
+
+  var x3_2 = x2_2+r2 * -sin(tan(a3));
+  var y3_2 = y2_6+r5 * tan(a4*sin(a2));
+
+  var x3_3 = x2_3+r7 * -sin(cos(a2));
+  var y3_3 = y2_1+r7 * tan(sin(120));
+
+  var x3_4 = x3_1+r7 * -sin(tan(a3));
+  var y3_4 = y2_6+r2 * sin(-cos(sin(a1)));
+
+  var x3_5 = x3+r7 * cos(a2);
+  var y3_5 = y3+r7 * sin(a2);
+
+  var x3_6 = x1_7+x3_2 * sin(cos(a3));
+  var y3_6 = y1_3+x3+r8 * tan(a3*50);
+
+
 
   stroke('#ed791a');
 //3rd
@@ -248,10 +286,41 @@ function draw() {
   line(x3,y3,x4,y4);
   fill(0);
   ellipse(x4,y4,m4,m4);
-//4th_1
+// //4th_1
   line(x3,y3,x2_6,y2_6);
   fill(0);
-  ellipse(x4,y4,m2,m2);
+  ellipse(x2_6,y2_6,m2,m2);
+// //4th_1
+  line(x2_6,y2_6,x1_7,y1_7);
+  fill(0);
+  ellipse(x1_7,y1_7,m1,m1);
+// //4th_1
+  line(x1_7,y1_7,x3_2,y3_2);
+  fill(0);
+  ellipse(x3_2,y3_2,m4,m4);
+// //4th_1
+  line(x1_8,y1_8,x3_3,y3_3);
+  fill(0);
+  ellipse(x3_3,y3_3,m4,m4);
+// //4th_1
+  line(x3_2,y3_2,x3_3,y3_3);
+  fill(0);
+  // ellipse(x3_3,y3_3,m4,m4);
+// //4th_1
+  line(x1_5,y1_5,x3_4,y3_4);
+  fill(0);
+  ellipse(x3_4,y3_4,m4,m4);
+// //4th_1
+  line(x1_8,y1_8,x3_5,y3_5);
+  fill(0);
+  ellipse(x3_5,y3_5,m2,m2);
+  line(x3_5,y3_5,x3_2,y3_2);
+// //4th_1
+  line(x1_9,y1_9,x3_6,y3_6);
+  fill(0);
+  ellipse(x3_6,y3_6,m1,m1);
+  line(x3_6,y3_6,x2_1,y2_1);
+
 
 
 
@@ -283,70 +352,101 @@ function draw() {
   // a2_v *= 0.9;
 pop();
 
-// push();
-// //right
-//   let R_a1 = 3.14159265358979323846/2;
-//   let R_a2 = 3.14159265358979323846/3;
-//   let R_a3 = 3.14159265358979323846/14;
-//   let R_a4 = 3.14159265358979323846/7;
-//   let R_a5 = 3.14159265358979323846/9;
-//
-//
-//
-//   // velocity of rotation
-//   let R_a1_v = 0;
-//   let R_a2_v = 0;
-//   let R_g = 1;
-//
-//   let R_num1 = -R_g * (2 * m1 + m2) * sin(R_a1);
-//   let R_num2 = -m2 * R_g * sin(R_a1-2*R_a2);
-//   let R_num3 = -2*sin(R_a1-R_a2)*m2;
-//   let R_num4 = R_a2_v*R_a2_v*r2+R_a1_v*R_a1_v*r1*cos(R_a1-R_a2);
-//   let R_den = r1 * (2*m1+m2-m2*cos(2*R_a1-2*R_a2));
-//
-//   let R_a1_a = (R_num1 + R_num2 + R_num3*R_num4) / R_den;
-//   let R_a2_a = 0;
-//   // let R_a1_v = 0;
-//   // let R_a2_v = 0;
-//
-//   // velocity of rotation
-//
-//
-//   var R_x1 = r2 * sin(R_a1);
-//   var R_y1 = r2 * cos(R_a1);
-//
-//   // translate(width4/5,height/3);
-// //rotate
-//   line(0,0,R_x1,R_y1);
-//   fill(0);
-//   ellipse(R_x1,R_y1,m1,m1);
-// // //1st
-// //   line(width*2/5,100,x1,y1);
-// //   fill(0);
-// //   ellipse(width*2/5,100,m1,m1);
-// // //1st
-// //   line(width*2/5,100,x3,y3);
-// //   fill(0);
-// //   ellipse(x3,y3,m1,m1);
-// //
-// //   line(x3,y3,x1,y1);
-// //   fill(0);
-// //   ellipse(x1,y1,m2,m2);
-//
-//   R_a1_v += R_a1_a;  //a1_a
-//   R_a2_v -= R_a2_a;  //a2_a
-//
-//   // angle = velocity of rotation
-//     R_a1 += 0.02; //a1_v
-//     R_a2 -= 0.01; //a2_v
-//     R_a3 *= 0.1;
-//     R_a4 += 0.02;
-// pop();
+text('Click Here', width/2-26, height/2-30);
+text('Click White Back', width/2-40, height/2+60);
+text('Mouse Scroll', width-100, 30);
+text('Press Any Key', width-110, 50);
+text('Move your mouse', width-125, 70);
 
 
+if (mouseIsPressed) {
+  if (dist(mouseX, mouseY, width/2, height/2)< 25) {
+  a1 += 0.5;
+  a2 += 0.05;
+  a3 *= 1;
+  a4 *= 0.2;
+}
+}
 
+if (keyIsPressed === true) {
+  m0 = 0;
+}
+// show();
 
 }
+
+
+function mouseWheel(event){
+  if (m0 <= 250) {
+    m0 += 3;
+  }
+}
+
+// function keyIsPressed(){
+//   if (keyIsPressed === true) {
+//     m0 += sin(a3);
+//   } else {
+//     m0 = 0;
+//   }
+// }
+
+
+// if (m0 >= 200) {
+//   m0 = 0;
+// }
+
+
+// function mousePressed() {
+//   if (dist(mouseX, mouseY, width/2, height/2) > 25) {
+//     r1 +=r1*0.9;
+//     r2 +=r2*0.9;
+//     r3 +=r3*0.9;
+//     r4 +=r4*0.9;
+//     r5 +=r5*0.9;
+//     r6 +=r6*0.9;
+//     r7 +=r7*0.9;
+//     r8 +=r8*0.9;
+//     r9 +=r9*0.9;
+//   }
+// }
+
+function mouseMoved() {
+  value = value + 4;
+  m1=value;
+  m2=value;
+  m3=value;
+  m4=value;
+  m5=value;
+  // fill(random(0,255),random(0,255),random(0,255));
+  if (value > 255) {
+    value = 0;
+  }
+}
+
+
+// class Light {
+//   constructor() {
+//     this.x = 100;
+//     this.y = 100;
+//   }
+//   move() {
+//     this.x = this.x + random(-2,2);
+//     this.y = this.y + random(-2,2);
+//   }
+//
+//   show() {
+//     image(pink,this.x,this.y)
+//   }
+// }
+
+// function mousePressed(){
+//   // if (dist(mouseX, mouseY, width/2, height/2)< 25) {
+//   //   a1 += 0.5;
+//   //   a2 += 0.05;
+//   //   a3 *= 1;
+//   //   a4 *= 0.2;
+//   // }
+// }
 
 //
 // function mousePressed (){
